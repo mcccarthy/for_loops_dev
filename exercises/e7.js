@@ -1,3 +1,5 @@
+/** @format */
+
 // EXERCISE 7
 // Return an array with a bank account object with the lowest balance but not broke ( balance > 0 )
 // In case there is no account that has balance > 0 return an empty array
@@ -5,8 +7,23 @@
 // getClientWithLeastBalance(bankAccounts) => [{ name: 'SomeName', balance: 32, ... }]
 
 export function getClientWithLeastPositiveBalance(array) {
-  // Your code goes here...
-  
+	let lowestBalanceAccount = null;
+
+	for (let i = 0; i < array.length; i++) {
+		// Check if the current account has a positive balance
+		if (array[i].balance > 0) {
+			// If lowestBalanceAccount is null or the current account's balance is lower, update lowestBalanceAccount
+			if (
+				!lowestBalanceAccount ||
+				array[i].balance < lowestBalanceAccount.balance
+			) {
+				lowestBalanceAccount = array[i];
+			}
+		}
+	}
+
+	// If no account with a positive balance is found, return an empty array
+	return lowestBalanceAccount ? [lowestBalanceAccount] : [];
 }
 
 // === TEST YOURSELF ===
