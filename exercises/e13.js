@@ -1,3 +1,4 @@
+/** @format */
 
 // EXERCISE 13
 // Return an array of bank accounts that have a sum of deposits less than 2000 or no deposits at all
@@ -5,11 +6,26 @@
 // getAllAccountsWithSumsOfDepositsLess2000(bankAccounts) => [3432, 43242.34, 23432]
 
 export function getAllAccountsWithSumsOfDepositsLess2000(array) {
-  // Your code goes here...
+	// Your code goes here...
+	let arrayOfBankAccounts = [];
+	for (let i = 0; i < array.length; i++) {
+		console.log(array[i].deposits);
+		let totalDeposits = 0;
+		if (array[i].deposits != undefined) {
+			for (let j = 0; j < array[i].deposits.length; j++) {
+				totalDeposits += array[i].deposits[j];
+			}
+			if (totalDeposits < 2000) {
+				arrayOfBankAccounts.push(array[i]);
+			}
+		} else if (array[i].deposits == undefined) {
+			arrayOfBankAccounts.push(array[i]);
+		}
+	}
+	console.log(arrayOfBankAccounts);
 
+	return arrayOfBankAccounts;
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-13"
