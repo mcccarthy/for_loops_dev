@@ -1,3 +1,4 @@
+/** @format */
 
 // EXERCISE 15
 // Please, read the exercise-info/concat.md to get the initial data of what is the expected result of this exercise.
@@ -5,11 +6,16 @@
 // NOTE: You can NOT use the array.concat() method in your code
 
 export function concatArrays(arr1, arr2) {
-  // Your code goes here...
-
+	// Your code goes here...
+	let concatArrays = [];
+	for (let i = 0; i < arr1.length; i++) {
+		concatArrays.push(arr1[i]);
+	}
+	for (let j = 0; j < arr2.length; j++) {
+		concatArrays.push(arr2[j]);
+	}
+	return concatArrays;
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-15"

@@ -1,3 +1,4 @@
+/** @format */
 
 // EXERCISE 14
 // The balance is supposed to equal the difference of all deposits and all withdrawals.
@@ -6,11 +7,31 @@
 // getClientsWithWrongBalance(bankAccounts) => [{ name: 'Name1', balance: 32, ... }, { name: 'Name2', balance: 3523, ... }]
 
 export function getClientsWithWrongBalance(array) {
-  // Your code goes here...
+	let inCorrectAccounts = [];
+	for (let i = 0; i < array.length; i++) {
+		array[i].withdrawals;
 
+		let sumOfWithdrawals = 0;
+		if (array[i].withdrawals) {
+			for (let j = 0; j < array[i].withdrawals.length; j++) {
+				sumOfWithdrawals += array[i].withdrawals[j];
+			}
+		}
+		let sumOfDeposits = 0;
+
+		if (array[i].deposits) {
+			for (let k = 0; k < array[i].deposits.length; k++) {
+				sumOfDeposits += array[i].deposits[k];
+			}
+		}
+
+		let expectedBalance = sumOfDeposits - sumOfWithdrawals;
+		if (expectedBalance !== array[i].balance) {
+			inCorrectAccounts.push(array[i]);
+		}
+	}
+	return inCorrectAccounts;
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-14"
