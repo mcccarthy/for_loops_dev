@@ -1,3 +1,4 @@
+/** @format */
 
 // EXERCISE 20
 // Return and array of 2 arrays
@@ -6,8 +7,27 @@
 // NOTE: You MUST use double/nested FOR loop to solve this exercise. The array.includes() method is NOT allowed.
 
 export function separateNamesWithAFromRest(array) {
-  // Your code goes here...
+	let withA = [];
+	let withoutA = [];
 
+	for (let i = 0; i < array.length; i++) {
+		let name = array[i];
+		let foundA = false;
+
+		for (let j = 0; j < name.length; j++) {
+			if (name[j].toLowerCase() === 'a') {
+				withA.push(name);
+				foundA = true;
+				break;
+			}
+		}
+
+		if (!foundA) {
+			withoutA.push(name);
+		}
+	}
+
+	return [withA, withoutA];
 }
 
 
